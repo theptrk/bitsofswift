@@ -52,5 +52,17 @@ audioRecorder.delegate = self
 // [ ] record
 audioRecorder.record()
 
+// [ ] stop the recording
+audioRecorder.stop()
+
+// [ ] optional: you will likely want the callback that iOS uses to alert you
+// that the recording has been finished for any reason (phone call comes in)
+func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+    if !flag {
+        audioRecorder.stop()
+        // set some UI properties to alert the user
+    }
+}
+
 // sources:
 // https://www.hackingwithswift.com/example-code/media/how-to-record-audio-using-avaudiorecorder
